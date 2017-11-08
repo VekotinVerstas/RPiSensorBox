@@ -112,8 +112,8 @@ class Bme280Reader:
         pressure = pressure + ((v1 + v2 + self.digP[6]) / 16.0)
 
         #print "pressure : %7.2f hPa" % (pressure/100)
-        # return "{:.2f}".format(pressure/100)
-        return pressure/100
+        return "{:.2f}".format(pressure/100)
+        #return pressure/100
 
     def compensate_T(self, adc_T):
         v1 = (adc_T / 16384.0 - self.digT[0] / 1024.0) * self.digT[1]
@@ -121,8 +121,8 @@ class Bme280Reader:
         self.t_fine = v1 + v2
         temperature = self.t_fine / 5120.0
         #print "temp : %-6.2f ℃" % (temperature)
-        # return "{:.2f}".format(temperature)
-        return temperature
+        return "{:.2f}".format(temperature)
+        #return temperature
 
     def compensate_H(self, adc_H):
         # global self.t_fine
@@ -137,8 +137,8 @@ class Bme280Reader:
         elif var_h < 0.0:
             var_h = 0.0
         #print "hum : %6.2f ％" % (var_h)
-        # return "{:.2f}".format(var_h)
-        return var_h
+        return "{:.2f}".format(var_h)
+        #return var_h
 
     def setup(self):
         osrs_t = 1            #Temperature oversampling x 1
